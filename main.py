@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from IronLog.loader import load_data, clean_data
+from IronLog.analyzer import basic_stats
 
 def main():
     raw = load_data(r"D:\IronLog project\IronLog\Data\Workout_Data.csv")
@@ -10,7 +11,9 @@ def main():
     print("[Ok], cleaned", df.shape)
     print(df.head(5))
 
-
+    stats = basic_stats(df)
+    print("[OK], stats\n", stats)
+    
 
 if __name__ == "__main__":
     main()
