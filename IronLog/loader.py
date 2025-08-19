@@ -5,7 +5,9 @@ def load_data(path: str):
     df = pd.read_csv(path)
     main_df = pd.DataFrame(df)
 
-def clean_data(main_df):
+    return main_df
+
+def clean_data(main_df: pd.DataFrame):
     df = main_df.copy()
 
     #sorting dates
