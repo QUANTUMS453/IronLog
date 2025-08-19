@@ -82,7 +82,3 @@ IronLog is a **learning-by-building project**.
 ## 📌 Status
 
 🚧 Work in progress. Currently working on the analyzer module.
-
----
-
-Would you like me to also make you a **requirements.txt starter** (with just Pandas + Numpy for now), so your project runs out of the box?
