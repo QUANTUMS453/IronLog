@@ -76,6 +76,8 @@ IronLog is a **learning-by-building project**.
 * Build better coding structure (modules, packages, testing).
 * Practice data analysis with real gym data.
 * Create a personal tool that actually helps in training.
+* Run on a website
+* Learn API
 
 ---
 
