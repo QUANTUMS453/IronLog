@@ -17,5 +17,7 @@ def main():
     maxi = high_finder(df)
     print("[OK], the max for each exercise", maxi)
 
+
+
 if __name__ == "__main__":
     main()
