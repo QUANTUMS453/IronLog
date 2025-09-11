@@ -1,17 +1,23 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
-def session_summaries(df: pd.DataFrame):
-    df["date_label"] = df["date"].rank(method="dense").astype(int)
-    return df
 
-def basic_stats(df: pd.DataFrame):
+
+# Calculates total volume, sets, max/avg weight, and intensity per session.
+def summarize(df: pd.DataFrame, by: str):
+    df = df.copy()
     df["volume"] = df["sets"] * df["reps"] * df["weight"]
-    result = df.groupby("exercise").agg({
-        "volume": "sum",
-        "sets": "sum",
-        "weight": ["max", "mean"]
-        }).reset_index()
-    result.columns = ["exercise", "total_volume", "total_sets", "max_weight", "avg_weight"]
-    result["avg_intensity"] = result["avg_weight"] / result["max_weight"]
-    return result
+    grouped = df.groupby(by).agg(
+        total_volume=pd.NamedAgg(column="volume", aggfunc="sum"),
+        total_sets=pd.NamedAgg(column="sets", aggfunc="sum"),
+        max_weight=pd.NamedAgg(column="weight", aggfunc="max"),
+        avg_weight=pd.NamedAgg(column="weight", aggfunc="mean"),
+    ).reset_index()
+    grouped["avg_intensity"] = grouped["avg_weight"] / grouped["max_weight"]
+    return grouped
+
+
+# TODO: Implement data visualization functions
+def data_visualizer(df: pd.DataFrame):
+    pass
