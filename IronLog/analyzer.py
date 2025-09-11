@@ -11,13 +11,9 @@ def summarize(df: pd.DataFrame, by: str):
     grouped = df.groupby(by).agg(
         total_volume=pd.NamedAgg(column="volume", aggfunc="sum"),
         total_sets=pd.NamedAgg(column="sets", aggfunc="sum"),
+        total_reps=pd.NamedAgg(column="reps", aggfunc="sum"),
         max_weight=pd.NamedAgg(column="weight", aggfunc="max"),
         avg_weight=pd.NamedAgg(column="weight", aggfunc="mean"),
     ).reset_index()
     grouped["avg_intensity"] = grouped["avg_weight"] / grouped["max_weight"]
     return grouped
-
-
-# TODO: Implement data visualization functions
-def data_visualizer(df: pd.DataFrame):
-    pass
