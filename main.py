@@ -1,7 +1,5 @@
-import numpy as np
-import pandas as pd
 from IronLog.loader import load_data, clean_data
-from IronLog.analyzer import basic_stats
+from IronLog.analyzer import summarize
 
 def main():
     raw = load_data(r"D:\IronLog project\IronLog\Data\Workout_Data.csv")
@@ -11,9 +9,11 @@ def main():
     print("[Ok], cleaned", df.shape)
     print(df)
 
-    stats = basic_stats(df)
-    print("[OK], stats\n", stats)
+    session_summary = summarize(df, by="date")
+    print("[OK] Summarized data\n", session_summary)
 
+    excercise_summary = summarize(df, by="exercise")
+    print("[OK] Summarized data\n", excercise_summary)
 
 
 if __name__ == "__main__":
