@@ -15,14 +15,14 @@ The goal: combine **data analysis** with **real gym progress**.
 * [x] Load and clean workout logs from CSV
 * [x] Normalize dates and exercise names
 * [x] Calculate workout volume (sets × reps × weight)
-* [ ] Session summaries (daily totals, averages, intensity)
+* [x] Session summaries (daily totals, averages, intensity)
 * [ ] Track progress over time per exercise
 * [ ] Highlight personal records (PRs)
 * [ ] Exercise distribution analysis (push/pull/legs split)
 * [ ] Weekly/monthly trends
 * [ ] Visualization (progress graphs, distributions, trends)
 
----
+--- 
 
 ## 📂 Project Structure
 
