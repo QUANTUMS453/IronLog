@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from IronLog.loader import load_data, clean_data
-from IronLog.analyzer import basic_stats, high_finder
+from IronLog.analyzer import basic_stats
 
 def main():
     raw = load_data(r"D:\IronLog project\IronLog\Data\Workout_Data.csv")
@@ -13,9 +13,6 @@ def main():
 
     stats = basic_stats(df)
     print("[OK], stats\n", stats)
-    
-    maxi = high_finder(df)
-    print("[OK], the max for each exercise", maxi)
 
 
 

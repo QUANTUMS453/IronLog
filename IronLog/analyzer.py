@@ -13,10 +13,5 @@ def basic_stats(df: pd.DataFrame):
         "weight": ["max", "mean"]
         }).reset_index()
     result.columns = ["exercise", "total_volume", "total_sets", "max_weight", "avg_weight"]
-
+    result["avg_intensity"] = result["avg_weight"] / result["max_weight"]
     return result
-
-def high_finder(df: pd.DataFrame):
-    max_weight = df.groupby("exercise")["weight"].max()
-    return max_weight
-    
