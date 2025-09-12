@@ -1,11 +1,9 @@
-import matplotlib.pyplot as plt
-import pandas as pd
 from IronLog.loader import load_data, clean_data
 from IronLog.analyzer import summarize
 from IronLog.visualizer import data_visualizer
 
 def main():
-    raw = load_data(r"D:\IronLog project\IronLog\Data\Workout_Data.csv")
+    raw = load_data(r"D:\IronLog project\IronLog\Data\Workout_Data2.csv")
     print("[OK] Loaded data", raw)
     
     df = clean_data(raw)
@@ -19,7 +17,8 @@ def main():
     print("[OK] Summarized data\n", excercise_summary)
 
     plot1 = data_visualizer(excercise_summary)
-    plt.show()
+    plot1.savefig("exercise_summary.png")
+
 
 if __name__ == "__main__":
     main()
