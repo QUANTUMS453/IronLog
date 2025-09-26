@@ -1,19 +1,24 @@
-import numpy as np
-import pandas as pd
 from IronLog.loader import load_data, clean_data
-from IronLog.analyzer import basic_stats
+from IronLog.analyzer import summarize
+from IronLog.visualizer import data_visualizer
 
 def main():
-    raw = load_data(r"D:\IronLog project\IronLog\Data\Workout_Data.csv")
+    raw = load_data(r"D:\IronLog project\IronLog\Data\Workout_Data2.csv")
     print("[OK] Loaded data", raw)
     
     df = clean_data(raw)
     print("[Ok], cleaned", df.shape)
-    print(df.head(5))
+    print(df)
 
-    stats = basic_stats(df)
-    print("[OK], stats\n", stats)
-    
+    session_summary = summarize(df, by="date")
+    print("[OK] Summarized data\n", session_summary)
+
+    excercise_summary = summarize(df, by="exercise")
+    print("[OK] Summarized data\n", excercise_summary)
+
+    plot1 = data_visualizer(excercise_summary)
+    plot1.savefig("exercise_summary.png")
+
 
 if __name__ == "__main__":
     main()
