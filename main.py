@@ -1,9 +1,10 @@
 from IronLog.loader import load_data, clean_data
 from IronLog.analyzer import summarize
 from IronLog.visualizer import data_visualizer
+from pathlib import Path
 
 def main():
-    raw = load_data(r"D:\IronLog project\IronLog\Data\Workout_Data2.csv")
+    raw = load_data(Path("Data")/"Workout_Data2.csv")
     print("[OK] Loaded data", raw)
     
     df = clean_data(raw)
