@@ -1,6 +1,6 @@
 import pandas as pd
 
-def load_data(path: str):
+def load_data(path):
     df = pd.read_csv(path)
     main_df = pd.DataFrame(df)
 
